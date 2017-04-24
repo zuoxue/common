@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>navigator</title>
+    <link href="http://libs.baidu.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/main.css">
+    <script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.js"></script>
+    <script src="http://libs.baidu.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+    <script src="../js/nav.js"></script>
+</head>
+<body>
+    <div id="container">
+        <header>
+            <h1>导航（<small>一个简单的导航下拉</small>）</h1>
+            <h2>汪海</h2>
+        </header>
+        <nav>
+            <ul>
+                <li>
+                    <a href="javascript:void(0);">首页</a>
+                    <nav>
+                        <ul>
+                            <li><a href="javascript:void(0);">左学</a></li>
+                            <li><a href="javascript:void(0);">汪海</a></li>
+                            <li><a href="javascript:void(0);">海哥</a></li>
+                            <li><a href="javascript:void(0);">文件</a></li>
+                        </ul>
+                    </nav>
+                </li>
+                <li>
+                    <a href="javascript:void(0);">问卷</a>
+                    <nav>
+                        <ul>
+                            <li><a href="javascript:void(0);">左学</a></li>
+                            <li><a href="javascript:void(0);">汪海</a></li>
+                            <li><a href="javascript:void(0);">海哥</a></li>
+                            <li><a href="javascript:void(0);">文件</a></li>
+                        </ul>
+                    </nav>
+                </li>
+                <li>
+                    <a href="javascript:void(0);">报表</a>
+                    <nav>
+                        <ul>
+                            <li><a href="javascript:void(0);">左学</a></li>
+                            <li><a href="javascript:void(0);">汪海</a></li>
+                            <li><a href="javascript:void(0);">海哥</a></li>
+                            <li><a href="javascript:void(0);">文件</a></li>
+                        </ul>
+                    </nav>
+                </li>
+                <li>
+                    <a href="javascript:void(0);">应用</a>
+                    <nav>
+                        <ul>
+                            <li><a href="javascript:void(0);">左学</a></li>
+                            <li><a href="javascript:void(0);">汪海</a></li>
+                            <li><a href="javascript:void(0);">海哥</a></li>
+                            <li><a href="javascript:void(0);">文件</a></li>
+                        </ul>
+                    </nav>
+                </li>
+                <li>
+                    <a href="javascript:void(0);">介绍</a>
+                    <nav>
+                        <ul>
+                            <li><a href="javascript:void(0);">左学</a></li>
+                            <li><a href="javascript:void(0);">汪海</a></li>
+                            <li><a href="javascript:void(0);">海哥</a></li>
+                            <li><a href="javascript:void(0);">文件</a></li>
+                        </ul>
+                    </nav>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</body>
+<script>
+$(function(){
+    var $nav = $("#container>nav>ul>li>a");
+
+    $nav.on("mouseover mouseout",function(event){
+        nav.initmodule($(this))[event.type]($(this));
+    })
+
+})
+</script>
+</html>
