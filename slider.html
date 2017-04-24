@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>slider</title>
+	<style type="text/css" media="screen">
+		body{
+			margin:0;
+			padding:0;
+			background:#777;
+		}
+
+		.spa{
+			position:absolute;
+			top:8px;
+			left:8px;
+			bottom:8px;
+			right:8px;
+
+			/*width:100%;*/
+			height:auto;
+
+			overflow:hidden;
+			background:#fff;
+		}
+
+		.spa .spa_slider{
+			position:absolute;
+			bottom:0;
+			right:0;
+			height:16px;
+			width:300px;
+			background: #bdf;
+			z-index:1000;
+		}
+		
+		.spa .spa_slider_fz{
+			position:absolute;
+			bottom:0;
+			right:0;
+			height:16px;
+			width:300px;
+			background: #fdb;
+			z-index:2000;
+		}
+		.spa .spa_slider ul{
+		
+			width:100%;
+			height:80%;
+			list-style: none;
+			text-align:center;
+			padding:0;
+		}
+
+		.spa .spa_slider ul li {
+			width:100%;
+			height:25%;
+			line-height:20%;
+		}
+		
+		.spa .spa_slider ul li a{
+			text-decoration: none;
+			color:red;
+			display:block;
+			width:100%;
+			height:20px;
+			line-height:20px;
+			cursor:pointer;
+		}
+		.spa .spa_slider ul li a:hover{
+			color:#fff;
+			background:#ccc;
+		}
+		.spa .spa_slider_fz .triggle{
+			position:relative;
+			left:50%;
+			width:0;
+			height:0;
+			border-left:8px solid transparent;
+			border-right:8px solid transparent;
+			border-bottom:16px solid #000;
+
+			margin-left:-8px;
+		}
+
+		.spa .spa_slider_fz .fz-triggle{
+			position:relative;
+			left:50%;
+			width:0;
+			height:0;
+			border-left:8px solid transparent;
+			border-right:8px solid transparent;
+			border-top:16px solid #000;
+			margin-left:-8px;
+		}
+	</style>
+	<script type="text/javascript" src="../js/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript">
+		var spa = (function($){
+				var configMap = {
+					extend_height : 439,
+					init_height : 16
+				},
+					onclickSlider,
+					initmodule,
+					$chatSlider;
+
+				onclickSlider=function($chatSlider){
+					if($chatSlider.prev().height() == configMap.init_height){
+						$chatSlider.prev().stop().animate({
+							height:configMap.extend_height+"px"
+						});
+						$chatSlider.prev().prop("title","haigege");
+						$chatSlider.find(".all_a").removeClass("triggle").addClass("fz-triggle");
+					}else{
+						$chatSlider.prev().stop().animate({
+							height:configMap.init_height+"px"
+						});
+						$chatSlider.prop("title","");
+						$chatSlider.find(".all_a").removeClass("fz-triggle").addClass("triggle");
+					}
+				}
+
+				initmodule = function($chatSlider){
+					// $chatSlider.on("click",onclickSlider($chatSlider));
+					return onclickSlider($chatSlider);
+				}
+
+				return {initmodule:initmodule};
+
+			}(jQuery));
+
+		$(function(){
+
+			$(".spa_slider_fz").on("click",function(){
+				spa.initmodule($(this));	
+			});
+			
+		})
+	</script>
+</head>
+<body>
+	<div class="spa">
+		<div class="spa_slider">
+			<ul>
+				<li><a href="javascript:void;">导航</a></li>
+				<li><a href="javascript:void;">首页</a></li>
+				<li><a href="javascript:void;">说明</a></li>
+				<li><a href="javascript:void;">售后</a></li>
+			</ul>
+		</div>
+		<div class="spa_slider_fz">
+			<div class="triggle all_a"></div>
+		</div>
+	</div>
+</body>
+</html>
